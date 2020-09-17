@@ -116,33 +116,24 @@
 						{
 							if(i == ban_list[k][0] && j == ban_list[k][1])
 							{	
-								//units[i][j] = temp;
-								units[i].splice(k,1);
+								units[i][j] = temp;
+								//units[i].splice(k,1);
 							}
 						}
 					}
 				}
-				/*for(i =0;i < CategoryLen; i++)
+				for(i =0;i < CategoryLen; i++)
 				{
 					var timer = 0;
 					for(j = 0;j < CategoryNUM[i] - 1; j++)
 					{
-						timer++;
 						if(units[i][j] == temp)
 						{
-							for(k = j;k < CategoryNUM[i] - 1; k++)
-							{
-								tmp = new Unit("");
-								tmp = units[i][k];
-								units[i][k] = units[i][k+1];
-								units[i][k+1] = tmp;
-							}
+							units[i].splice(j,1);
 							j--;
 						}
-						if(timer > CategoryNUM[i]*2)
-							break;
 					}
-				}*/
+				}
 				CategoryNUM[0] = 6;
 				CategoryNUM[1] = 7;
 				CategoryNUM[2] = 5;
