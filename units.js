@@ -16,8 +16,8 @@
 	var ban_list = [
 	[0,0],[0,2],[0,4],
 	[1,1],[1,2],[1,3],[1,7],
-	[2,0],[2,1],[2,5],[2,7],
-	[3,1],[3,2],[3,3],[3,4],[3,5],[3,7],
+	[2,0],[2,1],[2,4],[2,7],
+	[3,1],[3,2],[3,3],[3,4],[3,7],
 	[4,0],[4,3],[4,4],[4,6],[4,8],
 	[5,0],[5,5],
 	[6,1],[6,2],[6,3],[6,7],
@@ -108,21 +108,22 @@
 			if(luckyBag)
 			{
 				temp = new Unit("");
-				for(i = 0;i < CategoryLen; i++)
+				for(i = CategoryLen;i >= 0; i--)
 				{
-					for (j = 0; j < CategoryNUM[i]; j++)
+					for (j = CategoryNUM[i] - 1; j >= 0; j--)
 					{
 						for(k = 0; k < ban_len; k++)
 						{
 							if(i == ban_list[k][0] && j == ban_list[k][1])
 							{	
-								units[i][j] = temp;
-								//units[i].splice(k,1);
+								//units[i][j] = temp;
+								units[i].splice(j,1);
+                                break;
 							}
 						}
 					}
 				}
-				for(i =0;i < CategoryLen; i++)
+				/*for(i =0;i < CategoryLen; i++)
 				{
 					var timer = 0;
 					for(j = 0;j < CategoryNUM[i] - 1; j++)
@@ -133,11 +134,11 @@
 							j--;
 						}
 					}
-				}
+				}*/
 				CategoryNUM[0] = 6;
 				CategoryNUM[1] = 5;
 				CategoryNUM[2] = 4;
-				CategoryNUM[3] = 2;
+				CategoryNUM[3] = 3;
 				CategoryNUM[4] = 5;
 				CategoryNUM[5] = 5;
 				CategoryNUM[6] = 4;
